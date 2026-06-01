@@ -52,10 +52,10 @@ export default function Landing() {
           </h3>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "40px" }}>
             {[
-              { num: "1", title: "Tell us about your business", desc: "Describe what you do and who you want to reach" },
-              { num: "2", title: "We find prospects", desc: "AI-powered research finds your ideal customers" },
-              { num: "3", title: "Generate emails", desc: "Personalized messages written in your voice" },
-              { num: "4", title: "Send on autopilot", desc: "Intelligent timing and follow-ups" },
+              { num: 1, title: "Tell us about your business", desc: "Describe what you do and who you want to reach" },
+              { num: 2, title: "We find prospects", desc: "AI-powered research finds your ideal customers" },
+              { num: 3, title: "Generate emails", desc: "Personalized messages written in your voice" },
+              { num: 4, title: "Send on autopilot", desc: "Intelligent timing and follow-ups" },
             ].map((step) => (
               <div key={step.num} style={{ animation: `slideInLeft 0.5s ease-out ${step.num * 0.1}s both` }}>
                 <div style={{ fontSize: "48px", fontWeight: "700", color: "#a8d5a2", marginBottom: "12px" }}>
