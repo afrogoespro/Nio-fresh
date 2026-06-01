@@ -104,44 +104,151 @@ export default function Landing() {
         </Link>
       </nav>
 
-      {/* Hero Section */}
-      <section style={{ paddingTop: "140px", paddingBottom: "100px", textAlign: "center" }}>
-        <div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 20px" }}>
-          <h1 style={{ fontSize: "52px", fontWeight: "700", lineHeight: "1.2", marginBottom: "20px", color: "#e8f3e5" }}>
-            Intelligent cold outreach, done right.
-          </h1>
-          <p style={{ fontSize: "16px", color: "#999", marginBottom: "40px", lineHeight: "1.6" }}>
-            NIO learns how you talk, finds the right people, and writes personalized emails—all on autopilot.
-          </p>
-          <Link href="/agents">
-            <button style={{
-              background: "#a8d5a2",
-              color: "#1a1a1a",
-              border: "none",
-              borderRadius: "8px",
-              padding: "12px 32px",
-              fontSize: "14px",
-              fontWeight: "600",
-              cursor: "pointer",
-              transition: "all 0.2s",
-            }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.transform = "translateY(-2px)";
-                e.currentTarget.style.opacity = "0.9";
+      {/* Hero - Above the Fold */}
+      <section style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "0 20px",
+      }}>
+        <div style={{ maxWidth: "800px", width: "100%" }}>
+          {/* Left side: Text */}
+          <div style={{ marginBottom: "60px" }}>
+            <h1 style={{
+              fontSize: "56px",
+              fontWeight: "700",
+              lineHeight: "1.2",
+              marginBottom: "20px",
+              color: "#e8f3e5"
+            }}>
+              Send personalized cold emails on autopilot.
+            </h1>
+            <p style={{
+              fontSize: "18px",
+              color: "#999",
+              marginBottom: "40px",
+              lineHeight: "1.6",
+              maxWidth: "500px"
+            }}>
+              NIO learns your voice, finds real prospects, writes personal emails, and sends them daily. No templates. No spam. Just results.
+            </p>
+            <Link href="/agents">
+              <button style={{
+                background: "#a8d5a2",
+                color: "#1a1a1a",
+                border: "none",
+                borderRadius: "8px",
+                padding: "14px 36px",
+                fontSize: "15px",
+                fontWeight: "600",
+                cursor: "pointer",
+                transition: "all 0.2s",
               }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.opacity = "1";
-              }}
-            >
-              Start free
-            </button>
-          </Link>
+                onMouseOver={(e) => {
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                  e.currentTarget.style.opacity = "0.9";
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.opacity = "1";
+                }}
+              >
+                Start free →
+              </button>
+            </Link>
+          </div>
+
+          {/* Visual Demo - Simple mockup of the process */}
+          <div style={{
+            background: "rgba(168, 213, 162, 0.05)",
+            border: "1px solid rgba(168, 213, 162, 0.15)",
+            borderRadius: "12px",
+            padding: "40px",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "40px",
+            alignItems: "center",
+          }}>
+            {/* Left: Step indicator */}
+            <div>
+              <div style={{ fontSize: "12px", color: "#a8d5a2", textTransform: "uppercase", fontWeight: "600", marginBottom: "16px", letterSpacing: "0.05em" }}>
+                Four simple steps
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                {[1, 2, 3, 4].map((num) => (
+                  <div key={num} style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                    padding: "8px 0",
+                  }}>
+                    <div style={{
+                      width: "32px",
+                      height: "32px",
+                      background: "#a8d5a2",
+                      color: "#1a1a1a",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontWeight: "700",
+                      fontSize: "14px",
+                    }}>
+                      {num}
+                    </div>
+                    <div style={{
+                      fontSize: "13px",
+                      color: "#ccc",
+                      fontWeight: "500",
+                    }}>
+                      {num === 1 && "Tell us about your business"}
+                      {num === 2 && "Describe your ideal customer"}
+                      {num === 3 && "Show us your voice"}
+                      {num === 4 && "Set your outreach pace"}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Output preview */}
+            <div>
+              <div style={{ fontSize: "12px", color: "#a8d5a2", textTransform: "uppercase", fontWeight: "600", marginBottom: "16px", letterSpacing: "0.05em" }}>
+                What you get
+              </div>
+              <div style={{
+                background: "#1a1a1a",
+                border: "1px solid rgba(168, 213, 162, 0.2)",
+                borderRadius: "8px",
+                padding: "16px",
+                fontSize: "12px",
+                color: "#ccc",
+                lineHeight: "1.6",
+              }}>
+                <div style={{ color: "#a8d5a2", fontWeight: "600", marginBottom: "8px" }}>
+                  Subject: Quick question about your product
+                </div>
+                <div>
+                  Hi Sarah, saw you just launched the new feature. We're using similar tools at our company and would love to compare notes...
+                </div>
+              </div>
+              <div style={{
+                fontSize: "11px",
+                color: "#666",
+                marginTop: "12px",
+                fontStyle: "italic"
+              }}>
+                12 personalized emails sent today
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 4-Step Flow */}
-      <section style={{ padding: "60px 20px", maxWidth: "600px", margin: "0 auto" }}>
+      {/* 4-Step Flow (Below fold) */}
+      <section style={{ padding: "80px 20px", maxWidth: "600px", margin: "0 auto" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
           {steps.map((step, i) => (
             <div key={i}>
@@ -171,7 +278,6 @@ export default function Landing() {
                 </div>
               </div>
 
-              {/* Arrow */}
               {i < steps.length - 1 && (
                 <div style={{
                   display: "flex",
@@ -188,7 +294,6 @@ export default function Landing() {
             </div>
           ))}
 
-          {/* Then we start */}
           <div
             ref={(el) => {
               if (el) stepRefs.current[steps.length] = el;
