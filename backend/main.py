@@ -8,6 +8,8 @@ from db.queries import get_active_campaigns
 from scheduler.daily_runner import run_campaign
 from routers.agents import router as agents_router
 from routers.plan import router as plan_router
+from routers.preview import router as preview_router
+from routers.dashboard import router as dashboard_router
 from routers.onboarding import router as onboarding_router
 from routers.voice import router as voice_router
 from routers.review import router as review_router
@@ -56,6 +58,8 @@ app.add_middleware(
 
 app.include_router(agents_router)
 app.include_router(plan_router)
+app.include_router(preview_router)
+app.include_router(dashboard_router)
 app.include_router(onboarding_router)
 app.include_router(voice_router)
 app.include_router(review_router)
