@@ -55,14 +55,14 @@ export default function Landing() {
   }, []);
 
   return (
-    <div style={{ minHeight: "100vh", background: "linear-gradient(135deg, #f8f6f1 0%, #fafaf8 50%, #f5f3ed 100%)", fontFamily: "'DM Sans', sans-serif", color: "#2a2a2a" }}>
+    <div style={{ minHeight: "100vh", background: "#0f1f1a", fontFamily: "'DM Sans', sans-serif", color: "#e8f3e5" }}>
       {/* Navbar */}
       <nav style={{
         position: "fixed",
         top: "24px",
         left: "50%",
         transform: "translateX(-50%)",
-        background: "rgba(255, 255, 255, 0.6)",
+        background: "rgba(15, 31, 26, 0.8)",
         backdropFilter: "blur(10px)",
         borderRadius: "999px",
         padding: "12px 28px",
@@ -70,19 +70,18 @@ export default function Landing() {
         gap: "40px",
         alignItems: "center",
         zIndex: 1000,
-        border: "1px solid rgba(168, 213, 162, 0.2)",
-        boxShadow: "0 8px 32px rgba(0, 0, 0, 0.05)",
+        border: "1px solid rgba(168, 213, 162, 0.15)",
       }}>
         <span style={{ fontSize: "14px", fontWeight: "700", color: "#a8d5a2" }}>nio</span>
         <div style={{ display: "flex", gap: "28px", fontSize: "12px" }}>
-          <a href="#how" style={{ color: "#666", textDecoration: "none", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={(e) => e.currentTarget.style.color = "#a8d5a2"} onMouseOut={(e) => e.currentTarget.style.color = "#666"}>How it works</a>
-          <a href="#why" style={{ color: "#666", textDecoration: "none", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={(e) => e.currentTarget.style.color = "#a8d5a2"} onMouseOut={(e) => e.currentTarget.style.color = "#666"}>Why NIO</a>
-          <a href="#faq" style={{ color: "#666", textDecoration: "none", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={(e) => e.currentTarget.style.color = "#a8d5a2"} onMouseOut={(e) => e.currentTarget.style.color = "#666"}>FAQ</a>
+          <a href="#how" style={{ color: "#999", textDecoration: "none", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={(e) => e.currentTarget.style.color = "#a8d5a2"} onMouseOut={(e) => e.currentTarget.style.color = "#999"}>How it works</a>
+          <a href="#why" style={{ color: "#999", textDecoration: "none", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={(e) => e.currentTarget.style.color = "#a8d5a2"} onMouseOut={(e) => e.currentTarget.style.color = "#999"}>Why NIO</a>
+          <a href="#faq" style={{ color: "#999", textDecoration: "none", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={(e) => e.currentTarget.style.color = "#a8d5a2"} onMouseOut={(e) => e.currentTarget.style.color = "#999"}>FAQ</a>
         </div>
         <Link href="/agents">
           <button style={{
             background: "#a8d5a2",
-            color: "#fff",
+            color: "#1a1a1a",
             border: "none",
             borderRadius: "999px",
             padding: "8px 20px",
@@ -90,7 +89,6 @@ export default function Landing() {
             fontWeight: "600",
             cursor: "pointer",
             transition: "all 0.2s",
-            boxShadow: "0 4px 12px rgba(168, 213, 162, 0.25)",
           }}
             onMouseOver={(e) => {
               e.currentTarget.style.background = "#96c88f";
@@ -106,7 +104,7 @@ export default function Landing() {
         </Link>
       </nav>
 
-      {/* Hero - Above the Fold */}
+      {/* Hero */}
       <section style={{
         minHeight: "100vh",
         display: "flex",
@@ -114,277 +112,168 @@ export default function Landing() {
         justifyContent: "center",
         alignItems: "center",
         padding: "0 20px",
+        textAlign: "center",
       }}>
-        <div style={{ maxWidth: "1000px", width: "100%" }}>
-          {/* Text + Visual Container */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "60px", alignItems: "center" }}>
-            {/* Left: Text */}
-            <div>
-              <h1 style={{
-                fontSize: "52px",
-                fontWeight: "700",
-                lineHeight: "1.2",
-                marginBottom: "20px",
-                color: "#2a2a2a"
-              }}>
-                Custom outreach on autopilot.
-              </h1>
-              <p style={{
-                fontSize: "16px",
-                color: "#666",
-                marginBottom: "40px",
-                lineHeight: "1.6"
-              }}>
-                NIO learns your voice, finds real prospects, writes personal emails, and sends them daily. No templates. No spam. Just results.
-              </p>
-              <Link href="/agents">
-                <button style={{
-                  background: "#a8d5a2",
-                  color: "#fff",
-                  border: "none",
-                  borderRadius: "12px",
-                  padding: "14px 36px",
-                  fontSize: "15px",
-                  fontWeight: "600",
-                  cursor: "pointer",
-                  transition: "all 0.2s",
-                  boxShadow: "0 8px 24px rgba(168, 213, 162, 0.3)",
-                }}
-                  onMouseOver={(e) => {
-                    e.currentTarget.style.transform = "translateY(-2px)";
-                    e.currentTarget.style.boxShadow = "0 12px 32px rgba(168, 213, 162, 0.4)";
-                  }}
-                  onMouseOut={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow = "0 8px 24px rgba(168, 213, 162, 0.3)";
-                  }}
-                >
-                  Start free →
-                </button>
-              </Link>
-            </div>
+        <div style={{ maxWidth: "700px" }}>
+          <h1 style={{
+            fontSize: "56px",
+            fontWeight: "700",
+            lineHeight: "1.2",
+            marginBottom: "20px",
+            color: "#e8f3e5"
+          }}>
+            Custom outreach on autopilot.
+          </h1>
+          <p style={{
+            fontSize: "16px",
+            color: "#999",
+            marginBottom: "40px",
+            lineHeight: "1.6"
+          }}>
+            NIO learns your voice, finds real prospects, writes personal emails, and sends them daily. No templates. No spam. Just results.
+          </p>
+          <Link href="/agents">
+            <button style={{
+              background: "#a8d5a2",
+              color: "#1a1a1a",
+              border: "none",
+              borderRadius: "8px",
+              padding: "14px 36px",
+              fontSize: "15px",
+              fontWeight: "600",
+              cursor: "pointer",
+              transition: "all 0.2s",
+            }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "translateY(-2px)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
+              Start free →
+            </button>
+          </Link>
 
-            {/* Right: 3D Clay-style Illustration */}
+          {/* Simple conversation visual - just text bubbles */}
+          <div style={{
+            marginTop: "60px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "12px",
+            maxWidth: "400px",
+            margin: "60px auto 0",
+          }}>
             <div style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              minHeight: "400px",
-              position: "relative",
+              background: "rgba(168, 213, 162, 0.1)",
+              border: "1px solid rgba(168, 213, 162, 0.2)",
+              borderRadius: "12px",
+              padding: "16px",
+              fontSize: "13px",
+              color: "#ccc",
+              textAlign: "left",
             }}>
-              {/* Glass container with 3D effect */}
-              <div style={{
-                width: "100%",
-                height: "400px",
-                background: "linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4))",
-                backdropFilter: "blur(20px)",
-                borderRadius: "24px",
-                border: "1px solid rgba(168, 213, 162, 0.3)",
-                padding: "40px",
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                gap: "20px",
-                boxShadow: "0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 1px rgba(255, 255, 255, 0.5)",
-                position: "relative",
-                overflow: "hidden",
-              }}>
-                {/* Left: Prospects */}
-                <div style={{ display: "flex", gap: "12px", justifyContent: "flex-start", marginBottom: "12px" }}>
-                  {[1, 2, 3].map((i) => (
-                    <div
-                      key={i}
-                      style={{
-                        width: "48px",
-                        height: "48px",
-                        borderRadius: "50%",
-                        background: `linear-gradient(135deg, ${i === 1 ? "#d4a574" : i === 2 ? "#c9956f" : "#deb887"}, ${i === 1 ? "#e8c9a8" : i === 2 ? "#dfc2a0" : "#f0dcc9"})`,
-                        boxShadow: `0 8px 16px rgba(0, 0, 0, 0.1), inset -2px -2px 4px rgba(0, 0, 0, 0.1), inset 2px 2px 4px rgba(255, 255, 255, 0.3)`,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontSize: "12px",
-                        fontWeight: "600",
-                        color: "#fff",
-                      }}
-                    >
-                      {i}
-                    </div>
-                  ))}
-                </div>
-
-                {/* Message bubble from prospects */}
-                <div style={{
-                  background: "rgba(168, 213, 162, 0.15)",
-                  border: "1px solid rgba(168, 213, 162, 0.3)",
-                  borderRadius: "12px",
-                  padding: "12px 16px",
-                  fontSize: "12px",
-                  color: "#2a2a2a",
-                  lineHeight: "1.4",
-                }}>
-                  "Your product looks interesting..."
-                </div>
-
-                {/* Arrow indicator */}
-                <div style={{
-                  textAlign: "center",
-                  fontSize: "20px",
-                  color: "#a8d5a2",
-                  fontWeight: "700",
-                }}>
-                  ↓
-                </div>
-
-                {/* Right: Business Owner */}
-                <div style={{ display: "flex", gap: "12px", justifyContent: "flex-end", marginTop: "12px" }}>
-                  <div
-                    style={{
-                      width: "56px",
-                      height: "56px",
-                      borderRadius: "50%",
-                      background: "linear-gradient(135deg, #a8d5a2, #96c88f)",
-                      boxShadow: `0 12px 24px rgba(0, 0, 0, 0.15), inset -2px -2px 4px rgba(0, 0, 0, 0.1), inset 2px 2px 4px rgba(255, 255, 255, 0.4)`,
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "24px",
-                    }}
-                  >
-                    👤
-                  </div>
-                </div>
-
-                {/* Message bubble from owner */}
-                <div style={{
-                  background: "rgba(168, 213, 162, 0.2)",
-                  border: "1px solid rgba(168, 213, 162, 0.4)",
-                  borderRadius: "12px",
-                  padding: "12px 16px",
-                  fontSize: "12px",
-                  color: "#2a2a2a",
-                  lineHeight: "1.4",
-                  textAlign: "right",
-                }}>
-                  "Let's chat!"
-                </div>
-              </div>
+              "Your product looks interesting..."
+            </div>
+            <div style={{
+              fontSize: "20px",
+              color: "#a8d5a2",
+              textAlign: "center",
+            }}>
+              ↓
+            </div>
+            <div style={{
+              background: "#a8d5a2",
+              color: "#1a1a1a",
+              borderRadius: "12px",
+              padding: "16px",
+              fontSize: "13px",
+              fontWeight: "600",
+              textAlign: "right",
+            }}>
+              "Let's chat!"
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4-Step Flow (Below fold) */}
-      <section style={{ padding: "100px 20px", maxWidth: "700px", margin: "0 auto" }}>
-        <div style={{ display: "flex", gap: "40px" }}>
-          {/* Left: Animated connector */}
-          <div style={{ position: "relative", width: "60px", flexShrink: 0 }}>
-            <svg width="60" height="100%" viewBox="0 0 60 800" style={{ position: "absolute", top: 0, left: 0 }}>
-              {steps.map((_, i) => {
-                if (i < steps.length - 1) {
-                  return (
-                    <path
-                      key={`curve-${i}`}
-                      d={`M 30 ${i * 200 + 60} Q 50 ${(i * 200 + 60 + (i + 1) * 200) / 2} 30 ${(i + 1) * 200}`}
-                      fill="none"
-                      stroke="#a8d5a2"
-                      strokeWidth="2.5"
-                      opacity={visibleSteps.has(i + 1) ? 0.5 : 0.1}
-                      style={{
-                        transition: "opacity 0.6s ease",
-                        transitionDelay: `${visibleSteps.has(i + 1) ? (i + 1) * 0.1 : 0}s`,
-                      }}
-                    />
-                  );
-                }
-                return null;
-              })}
-
-              {/* Animated arrow heads */}
-              {steps.map((_, i) => {
-                if (i < steps.length - 1) {
-                  return (
-                    <g
-                      key={`arrow-${i}`}
-                      opacity={visibleSteps.has(i + 1) ? 0.5 : 0.1}
-                      style={{
-                        transition: "opacity 0.6s ease",
-                        transitionDelay: `${visibleSteps.has(i + 1) ? (i + 1) * 0.1 : 0}s`,
-                      }}
-                    >
-                      <polygon points="30,200 25,190 35,190" fill="#a8d5a2" />
-                    </g>
-                  );
-                }
-                return null;
-              })}
-            </svg>
-          </div>
-
-          {/* Right: Steps */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "140px", flex: 1 }}>
-            {steps.map((step, i) => (
+      {/* 4-Step Flow */}
+      <section style={{ padding: "100px 20px", maxWidth: "600px", margin: "0 auto" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+          {steps.map((step, i) => (
+            <div key={i}>
               <div
-                key={i}
                 ref={(el) => {
                   if (el) stepRefs.current[i] = el;
                 }}
                 style={{
                   padding: "24px",
-                  background: "linear-gradient(135deg, rgba(168, 213, 162, 0.15), rgba(168, 213, 162, 0.05))",
-                  border: "1px solid rgba(168, 213, 162, 0.2)",
-                  color: "#2a2a2a",
-                  borderRadius: "12px",
+                  background: "#a8d5a2",
+                  color: "#1a1a1a",
+                  borderRadius: "8px",
                   opacity: visibleSteps.has(i) ? 1 : 0,
                   transform: visibleSteps.has(i) ? "translateY(0)" : "translateY(20px)",
                   transition: "all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
                   transitionDelay: `${visibleSteps.has(i) ? i * 0.1 : 0}s`,
-                  boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
                 }}
               >
-                <div style={{ fontSize: "20px", fontWeight: "700", marginBottom: "8px", color: "#a8d5a2" }}>
+                <div style={{ fontSize: "20px", fontWeight: "700", marginBottom: "8px" }}>
                   {step.num}
                 </div>
-                <div style={{ fontSize: "16px", fontWeight: "600", marginBottom: "4px", color: "#2a2a2a" }}>
+                <div style={{ fontSize: "16px", fontWeight: "600", marginBottom: "4px" }}>
                   {step.title}
                 </div>
-                <div style={{ fontSize: "13px", fontWeight: "400", opacity: 0.7, color: "#666" }}>
+                <div style={{ fontSize: "13px", fontWeight: "400", opacity: 0.8 }}>
                   {step.desc}
                 </div>
               </div>
-            ))}
 
-            <div
-              ref={(el) => {
-                if (el) stepRefs.current[steps.length] = el;
-              }}
-              style={{
-                padding: "24px",
-                background: "linear-gradient(135deg, #a8d5a2, #96c88f)",
-                color: "#fff",
-                borderRadius: "12px",
-                fontSize: "14px",
-                fontWeight: "600",
-                textAlign: "center",
-                opacity: visibleSteps.has(steps.length) ? 1 : 0,
-                transform: visibleSteps.has(steps.length) ? "translateY(0)" : "translateY(20px)",
-                transition: "all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
-                transitionDelay: `${visibleSteps.has(steps.length) ? steps.length * 0.1 : 0}s`,
-                boxShadow: "0 8px 20px rgba(168, 213, 162, 0.3)",
-              }}
-            >
-              Then we start →
+              {i < steps.length - 1 && (
+                <div style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  padding: "8px 0",
+                  opacity: visibleSteps.has(i + 1) ? 0.4 : 0.15,
+                  transition: "opacity 0.5s ease",
+                  fontSize: "14px",
+                  color: "#a8d5a2",
+                }}>
+                  ↓
+                </div>
+              )}
             </div>
+          ))}
+
+          <div
+            ref={(el) => {
+              if (el) stepRefs.current[steps.length] = el;
+            }}
+            style={{
+              padding: "24px",
+              background: "#1a1a1a",
+              color: "#a8d5a2",
+              borderRadius: "8px",
+              fontSize: "14px",
+              fontWeight: "600",
+              textAlign: "center",
+              border: "1px solid #a8d5a2",
+              opacity: visibleSteps.has(steps.length) ? 1 : 0,
+              transform: visibleSteps.has(steps.length) ? "translateY(0)" : "translateY(20px)",
+              transition: "all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
+              transitionDelay: `${visibleSteps.has(steps.length) ? steps.length * 0.1 : 0}s`,
+            }}
+          >
+            Then we start →
           </div>
         </div>
       </section>
 
       {/* How It Works */}
       <section id="how" style={{ padding: "100px 20px", maxWidth: "700px", margin: "0 auto" }}>
-        <h2 style={{ fontSize: "40px", fontWeight: "700", color: "#2a2a2a", marginBottom: "12px", textAlign: "center" }}>
+        <h2 style={{ fontSize: "40px", fontWeight: "700", color: "#e8f3e5", marginBottom: "12px", textAlign: "center" }}>
           Here's what actually happens
         </h2>
-        <p style={{ fontSize: "14px", color: "#666", textAlign: "center", marginBottom: "60px" }}>
+        <p style={{ fontSize: "14px", color: "#999", textAlign: "center", marginBottom: "60px" }}>
           Simple. No complex setup. No spam. Just real emails that work.
         </p>
 
@@ -400,10 +289,10 @@ export default function Landing() {
                 {item.num}
               </div>
               <div>
-                <h3 style={{ fontSize: "16px", fontWeight: "700", marginBottom: "6px", color: "#2a2a2a" }}>
+                <h3 style={{ fontSize: "16px", fontWeight: "700", marginBottom: "6px", color: "#e8f3e5" }}>
                   {item.title}
                 </h3>
-                <p style={{ fontSize: "13px", color: "#666", lineHeight: "1.5", margin: 0 }}>
+                <p style={{ fontSize: "13px", color: "#999", lineHeight: "1.5", margin: 0 }}>
                   {item.desc}
                 </p>
               </div>
@@ -414,7 +303,7 @@ export default function Landing() {
 
       {/* Why It Works */}
       <section id="why" style={{ padding: "100px 20px", maxWidth: "700px", margin: "0 auto" }}>
-        <h2 style={{ fontSize: "40px", fontWeight: "700", color: "#2a2a2a", marginBottom: "12px", textAlign: "center" }}>
+        <h2 style={{ fontSize: "40px", fontWeight: "700", color: "#e8f3e5", marginBottom: "12px", textAlign: "center" }}>
           Why people actually reply
         </h2>
 
@@ -426,15 +315,14 @@ export default function Landing() {
           ].map((item, i) => (
             <div key={i} style={{
               padding: "24px",
-              background: "linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3))",
-              border: "1px solid rgba(168, 213, 162, 0.15)",
-              borderRadius: "12px",
-              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.04)",
+              background: "#1a1a1a",
+              border: "1px solid rgba(168, 213, 162, 0.2)",
+              borderRadius: "8px",
             }}>
               <h3 style={{ fontSize: "14px", fontWeight: "700", marginBottom: "8px", color: "#a8d5a2" }}>
                 {item.title}
               </h3>
-              <p style={{ fontSize: "13px", color: "#666", lineHeight: "1.5", margin: 0 }}>
+              <p style={{ fontSize: "13px", color: "#999", lineHeight: "1.5", margin: 0 }}>
                 {item.desc}
               </p>
             </div>
@@ -444,7 +332,7 @@ export default function Landing() {
 
       {/* FAQ */}
       <section id="faq" style={{ padding: "100px 20px", maxWidth: "640px", margin: "0 auto" }}>
-        <h2 style={{ fontSize: "40px", fontWeight: "700", color: "#2a2a2a", marginBottom: "60px", textAlign: "center" }}>
+        <h2 style={{ fontSize: "40px", fontWeight: "700", color: "#e8f3e5", marginBottom: "60px", textAlign: "center" }}>
           Questions
         </h2>
         <div>
@@ -464,11 +352,11 @@ export default function Landing() {
                   alignItems: "center",
                   fontSize: "14px",
                   fontWeight: "600",
-                  color: "#2a2a2a",
+                  color: "#e8f3e5",
                   transition: "color 0.2s",
                 }}
                 onMouseOver={(e) => e.currentTarget.style.color = "#a8d5a2"}
-                onMouseOut={(e) => e.currentTarget.style.color = "#2a2a2a"}
+                onMouseOut={(e) => e.currentTarget.style.color = "#e8f3e5"}
               >
                 {item.q}
                 <span style={{ fontSize: "16px", color: "#a8d5a2" }}>
@@ -476,7 +364,7 @@ export default function Landing() {
                 </span>
               </button>
               {expandedFAQ === i && (
-                <p style={{ fontSize: "13px", color: "#666", marginTop: "12px", lineHeight: "1.6", paddingLeft: "12px", borderLeft: "2px solid #a8d5a2" }}>
+                <p style={{ fontSize: "13px", color: "#999", marginTop: "12px", lineHeight: "1.6", paddingLeft: "12px", borderLeft: "2px solid #a8d5a2" }}>
                   {item.a}
                 </p>
               )}
@@ -488,32 +376,29 @@ export default function Landing() {
       {/* Final CTA */}
       <section style={{ padding: "100px 20px" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto", textAlign: "center" }}>
-          <h2 style={{ fontSize: "36px", fontWeight: "700", color: "#2a2a2a", marginBottom: "12px" }}>
+          <h2 style={{ fontSize: "36px", fontWeight: "700", color: "#e8f3e5", marginBottom: "12px" }}>
             Ready to stop writing cold emails?
           </h2>
-          <p style={{ fontSize: "14px", color: "#666", marginBottom: "32px" }}>
+          <p style={{ fontSize: "14px", color: "#999", marginBottom: "32px" }}>
             15 minutes to set up. Runs on autopilot after that.
           </p>
           <Link href="/agents">
             <button style={{
               background: "#a8d5a2",
-              color: "#fff",
+              color: "#1a1a1a",
               border: "none",
-              borderRadius: "12px",
-              padding: "14px 36px",
-              fontSize: "15px",
+              borderRadius: "8px",
+              padding: "12px 32px",
+              fontSize: "14px",
               fontWeight: "600",
               cursor: "pointer",
               transition: "all 0.2s",
-              boxShadow: "0 8px 24px rgba(168, 213, 162, 0.3)",
             }}
               onMouseOver={(e) => {
                 e.currentTarget.style.transform = "translateY(-2px)";
-                e.currentTarget.style.boxShadow = "0 12px 32px rgba(168, 213, 162, 0.4)";
               }}
               onMouseOut={(e) => {
                 e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 8px 24px rgba(168, 213, 162, 0.3)";
               }}
             >
               Start free
@@ -523,7 +408,7 @@ export default function Landing() {
       </section>
 
       {/* Footer */}
-      <footer style={{ paddingTop: "40px", paddingBottom: "40px", textAlign: "center", borderTop: "1px solid rgba(168, 213, 162, 0.1)", color: "#999", fontSize: "12px" }}>
+      <footer style={{ paddingTop: "40px", paddingBottom: "40px", textAlign: "center", borderTop: "1px solid rgba(168, 213, 162, 0.1)", color: "#555", fontSize: "12px" }}>
         <p>© 2026 NIO. All rights reserved.</p>
       </footer>
     </div>
