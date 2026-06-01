@@ -15,6 +15,25 @@ export default function Landing() {
     { num: 4, title: "How often to reach out", desc: "Pick a pace. We'll send on schedule." },
   ];
 
+  const faqItems = [
+    {
+      q: "Will people think this is spam?",
+      a: "No. Every email is real and personalized. We cap sends at 30 a day and space them out. This feels like one person reaching out, not a blast."
+    },
+    {
+      q: "Does it sound like a robot?",
+      a: "NIO learns how you actually talk. It picks up your tone, your words, your style. Most people can't tell the difference."
+    },
+    {
+      q: "How long does setup take?",
+      a: "15 minutes. Answer a few questions. NIO handles everything else — finding people, researching them, writing emails."
+    },
+    {
+      q: "What happens when someone replies?",
+      a: "You get an email. Take the conversation from there. NIO opens the door, you close the deal."
+    },
+  ];
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -35,59 +54,41 @@ export default function Landing() {
     return () => observer.disconnect();
   }, []);
 
-  const faqItems = [
-    {
-      q: "Will people think this is spam?",
-      a: "No. Every email is real and personalized. We cap sends at 30 a day and space them out. This feels like one person reaching out, not a blast."
-    },
-    {
-      q: "Does it sound like a robot?",
-      a: "NIO learns how you actually talk. It picks up your tone, your words, your style. Most people can't tell the difference."
-    },
-    {
-      q: "How long does setup take?",
-      a: "15 minutes. Answer a few questions. NIO handles everything else — finding people, researching them, writing emails."
-    },
-    {
-      q: "What happens when someone replies?",
-      a: "You get an email. Take the conversation from there. NIO opens the door, you close the deal."
-    },
-  ];
-
   return (
-    <div style={{ minHeight: "100vh", background: "#e8f3e5", fontFamily: "'DM Sans', sans-serif", color: "#1a1a1a" }}>
+    <div style={{ minHeight: "100vh", background: "linear-gradient(135deg, #0f2818 0%, #1a3a28 50%, #0f2818 100%)", fontFamily: "'DM Sans', sans-serif", color: "#e8f3e5" }}>
       {/* Navbar */}
       <nav style={{
         position: "fixed",
         top: "24px",
         left: "50%",
         transform: "translateX(-50%)",
-        background: "#1a1a1a",
-        borderRadius: "24px",
-        padding: "12px 24px",
+        background: "rgba(26, 26, 26, 0.8)",
+        backdropFilter: "blur(10px)",
+        borderRadius: "999px",
+        padding: "14px 32px",
         display: "flex",
-        gap: "32px",
+        gap: "48px",
         alignItems: "center",
         zIndex: 1000,
-        boxShadow: "0 4px 16px rgba(0,0,0,0.1)",
+        border: "1px solid rgba(168, 213, 162, 0.2)",
       }}>
-        <span style={{ fontSize: "14px", fontWeight: "700", color: "#e8f3e5" }}>nio</span>
-        <div style={{ display: "flex", gap: "24px", fontSize: "13px" }}>
-          <a href="#how" style={{ color: "#999", textDecoration: "none", cursor: "pointer" }}>How it works</a>
-          <a href="#why" style={{ color: "#999", textDecoration: "none", cursor: "pointer" }}>Why NIO</a>
-          <a href="#faq" style={{ color: "#999", textDecoration: "none", cursor: "pointer" }}>FAQ</a>
+        <span style={{ fontSize: "16px", fontWeight: "700", color: "#a8d5a2" }}>nio</span>
+        <div style={{ display: "flex", gap: "32px", fontSize: "13px" }}>
+          <a href="#how" style={{ color: "#ccc", textDecoration: "none", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={(e) => e.currentTarget.style.color = "#a8d5a2"} onMouseOut={(e) => e.currentTarget.style.color = "#ccc"}>How it works</a>
+          <a href="#why" style={{ color: "#ccc", textDecoration: "none", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={(e) => e.currentTarget.style.color = "#a8d5a2"} onMouseOut={(e) => e.currentTarget.style.color = "#ccc"}>Why NIO</a>
+          <a href="#faq" style={{ color: "#ccc", textDecoration: "none", cursor: "pointer", transition: "color 0.2s" }} onMouseOver={(e) => e.currentTarget.style.color = "#a8d5a2"} onMouseOut={(e) => e.currentTarget.style.color = "#ccc"}>FAQ</a>
         </div>
         <Link href="/agents">
           <button style={{
             background: "#a8d5a2",
             color: "#1a1a1a",
             border: "none",
-            borderRadius: "20px",
-            padding: "8px 20px",
+            borderRadius: "999px",
+            padding: "10px 24px",
             fontSize: "13px",
             fontWeight: "600",
             cursor: "pointer",
-            transition: "all 0.2s",
+            transition: "all 0.3s",
           }}
             onMouseOver={(e) => {
               e.currentTarget.style.background = "#96c88f";
@@ -98,37 +99,64 @@ export default function Landing() {
               e.currentTarget.style.transform = "scale(1)";
             }}
           >
-            Try it now
+            Get Started
           </button>
         </Link>
       </nav>
 
       {/* Hero Section */}
-      <section style={{ paddingTop: "120px", paddingBottom: "60px", textAlign: "center" }}>
-        <div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 20px" }}>
-          <h1 style={{ fontSize: "52px", fontWeight: "700", lineHeight: "1.2", marginBottom: "12px", color: "#1a1a1a" }}>
+      <section style={{ paddingTop: "160px", paddingBottom: "80px", textAlign: "center", position: "relative", overflow: "hidden" }}>
+        {/* Decorative geometric shapes */}
+        <div style={{
+          position: "absolute",
+          top: "10%",
+          right: "5%",
+          width: "200px",
+          height: "200px",
+          background: "radial-gradient(circle, rgba(168, 213, 162, 0.15) 0%, transparent 70%)",
+          borderRadius: "50%",
+          filter: "blur(40px)",
+        }} />
+        <div style={{
+          position: "absolute",
+          bottom: "10%",
+          left: "5%",
+          width: "150px",
+          height: "150px",
+          background: "radial-gradient(circle, rgba(168, 213, 162, 0.1) 0%, transparent 70%)",
+          borderRadius: "50%",
+          filter: "blur(40px)",
+        }} />
+
+        <div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 20px", position: "relative", zIndex: 1 }}>
+          <p style={{ fontSize: "13px", color: "#a8d5a2", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "20px", fontWeight: "600" }}>
+            Intelligent Outreach
+          </p>
+          <h1 style={{ fontSize: "56px", fontWeight: "700", lineHeight: "1.2", marginBottom: "16px", color: "#e8f3e5" }}>
             Intelligent cold outreach, done right.
           </h1>
-          <p style={{ fontSize: "20px", color: "#666", marginBottom: "32px", lineHeight: "1.5" }}>
+          <p style={{ fontSize: "18px", color: "#bbb", marginBottom: "40px", lineHeight: "1.6" }}>
             NIO learns how you talk, finds the right people, and writes personalized emails—all on autopilot.
           </p>
           <Link href="/agents">
             <button style={{
-              background: "#1a1a1a",
-              color: "#e8f3e5",
+              background: "linear-gradient(135deg, #a8d5a2, #96c88f)",
+              color: "#1a1a1a",
               border: "none",
-              borderRadius: "24px",
-              padding: "14px 36px",
-              fontSize: "16px",
+              borderRadius: "12px",
+              padding: "16px 40px",
+              fontSize: "15px",
               fontWeight: "600",
               cursor: "pointer",
-              transition: "all 0.2s",
+              transition: "all 0.3s",
             }}
               onMouseOver={(e) => {
-                e.currentTarget.style.transform = "scale(1.04)";
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 12px 24px rgba(168, 213, 162, 0.3)";
               }}
               onMouseOut={(e) => {
-                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
               }}
             >
               Start free →
@@ -138,7 +166,7 @@ export default function Landing() {
       </section>
 
       {/* 4-Step Animated Flow */}
-      <section style={{ paddingBottom: "100px", padding: "40px 20px 100px" }}>
+      <section style={{ paddingBottom: "100px", padding: "40px 20px 100px", position: "relative" }}>
         <div style={{ maxWidth: "600px", margin: "0 auto" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: "0px" }}>
             {steps.map((step, i) => (
@@ -149,10 +177,11 @@ export default function Landing() {
                     if (el) stepRefs.current[i] = el;
                   }}
                   style={{
-                    background: "#a8d5a2",
-                    color: "#fff",
-                    padding: "24px 28px",
-                    borderRadius: "12px",
+                    background: "linear-gradient(135deg, rgba(168, 213, 162, 0.15), rgba(168, 213, 162, 0.05))",
+                    border: "1px solid rgba(168, 213, 162, 0.3)",
+                    color: "#e8f3e5",
+                    padding: "28px 32px",
+                    borderRadius: "16px",
                     fontSize: "16px",
                     fontWeight: "600",
                     textAlign: "left",
@@ -160,16 +189,17 @@ export default function Landing() {
                     transform: visibleSteps.has(i) ? "translateX(0)" : "translateX(-40px)",
                     transition: "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
                     transitionDelay: `${visibleSteps.has(i) ? i * 0.1 : 0}s`,
-                    marginBottom: i < steps.length - 1 ? "0" : "20px",
+                    marginBottom: i < steps.length - 1 ? "0" : "28px",
+                    backdropFilter: "blur(10px)",
                   }}
                 >
-                  <div style={{ fontSize: "32px", fontWeight: "700", marginBottom: "4px", opacity: 0.8 }}>
+                  <div style={{ fontSize: "40px", fontWeight: "700", marginBottom: "8px", color: "#a8d5a2", opacity: 0.9 }}>
                     {step.num}
                   </div>
-                  <div style={{ fontSize: "16px", fontWeight: "700", marginBottom: "2px" }}>
+                  <div style={{ fontSize: "16px", fontWeight: "700", marginBottom: "6px", color: "#e8f3e5" }}>
                     {step.title}
                   </div>
-                  <div style={{ fontSize: "13px", fontWeight: "400", opacity: 0.9 }}>
+                  <div style={{ fontSize: "13px", fontWeight: "400", color: "#aaa", lineHeight: "1.5" }}>
                     {step.desc}
                   </div>
                 </div>
@@ -180,8 +210,8 @@ export default function Landing() {
                     style={{
                       display: "flex",
                       justifyContent: "center",
-                      padding: "12px 0",
-                      opacity: visibleSteps.has(i + 1) ? 1 : 0.3,
+                      padding: "16px 0",
+                      opacity: visibleSteps.has(i + 1) ? 1 : 0.2,
                       transition: "opacity 0.6s ease",
                     }}
                   >
@@ -189,9 +219,10 @@ export default function Landing() {
                       <path
                         d="M20 5V35M20 35L10 25M20 35L30 25"
                         stroke="#a8d5a2"
-                        strokeWidth="3"
+                        strokeWidth="2.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
+                        opacity="0.6"
                       />
                     </svg>
                   </div>
@@ -205,10 +236,10 @@ export default function Landing() {
                 if (el) stepRefs.current[steps.length] = el;
               }}
               style={{
-                background: "#1a1a1a",
-                color: "#e8f3e5",
-                padding: "24px 28px",
-                borderRadius: "12px",
+                background: "linear-gradient(135deg, #a8d5a2, #96c88f)",
+                color: "#1a1a1a",
+                padding: "28px 32px",
+                borderRadius: "16px",
                 fontSize: "16px",
                 fontWeight: "600",
                 textAlign: "center",
@@ -224,14 +255,14 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* How It Works Explained */}
-      <section id="how" style={{ paddingBottom: "80px", background: "#fff", padding: "80px 20px" }}>
+      {/* How It Works */}
+      <section id="how" style={{ paddingBottom: "80px", padding: "80px 20px", position: "relative" }}>
         <div style={{ maxWidth: "700px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
-            <h2 style={{ fontSize: "40px", fontWeight: "700", color: "#1a1a1a", marginBottom: "12px" }}>
+            <h2 style={{ fontSize: "40px", fontWeight: "700", color: "#e8f3e5", marginBottom: "12px" }}>
               Here's what actually happens
             </h2>
-            <p style={{ fontSize: "16px", color: "#666" }}>
+            <p style={{ fontSize: "16px", color: "#aaa" }}>
               Simple. No complex setup. No spam. Just real emails that work.
             </p>
           </div>
@@ -248,10 +279,10 @@ export default function Landing() {
                   {item.num}
                 </div>
                 <div>
-                  <h3 style={{ fontSize: "18px", fontWeight: "700", marginBottom: "8px", color: "#1a1a1a" }}>
+                  <h3 style={{ fontSize: "18px", fontWeight: "700", marginBottom: "8px", color: "#e8f3e5" }}>
                     {item.title}
                   </h3>
-                  <p style={{ fontSize: "15px", color: "#666", lineHeight: "1.6" }}>
+                  <p style={{ fontSize: "15px", color: "#aaa", lineHeight: "1.6", margin: 0 }}>
                     {item.desc}
                   </p>
                 </div>
@@ -262,24 +293,30 @@ export default function Landing() {
       </section>
 
       {/* Why It Works */}
-      <section id="why" style={{ paddingBottom: "80px", padding: "80px 20px" }}>
+      <section id="why" style={{ paddingBottom: "80px", padding: "80px 20px", position: "relative" }}>
         <div style={{ maxWidth: "700px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
-            <h2 style={{ fontSize: "40px", fontWeight: "700", color: "#1a1a1a", marginBottom: "12px" }}>
+            <h2 style={{ fontSize: "40px", fontWeight: "700", color: "#e8f3e5", marginBottom: "12px" }}>
               Why people actually reply
             </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "32px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "24px" }}>
             {[
               { title: "It sounds real", desc: "Emails sound like a human wrote them. Because you trained it." },
               { title: "It's personalized", desc: "Each email mentions something specific about the person. Real research." },
               { title: "It's consistent", desc: "You pick the pace. Same voice, same quality, every single email." },
             ].map((item, i) => (
-              <div key={i} style={{ padding: "24px", background: "#f4f9f0", borderRadius: "16px" }}>
-                <h3 style={{ fontSize: "16px", fontWeight: "700", marginBottom: "8px", color: "#1a1a1a" }}>
+              <div key={i} style={{
+                padding: "24px",
+                background: "rgba(168, 213, 162, 0.08)",
+                border: "1px solid rgba(168, 213, 162, 0.2)",
+                borderRadius: "16px",
+                backdropFilter: "blur(10px)",
+              }}>
+                <h3 style={{ fontSize: "16px", fontWeight: "700", marginBottom: "8px", color: "#a8d5a2" }}>
                   {item.title}
                 </h3>
-                <p style={{ fontSize: "14px", color: "#666", lineHeight: "1.6" }}>
+                <p style={{ fontSize: "14px", color: "#aaa", lineHeight: "1.6", margin: 0 }}>
                   {item.desc}
                 </p>
               </div>
@@ -289,16 +326,16 @@ export default function Landing() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" style={{ paddingBottom: "80px", background: "#fff", padding: "80px 20px" }}>
+      <section id="faq" style={{ paddingBottom: "80px", padding: "80px 20px", position: "relative" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
-            <h2 style={{ fontSize: "40px", fontWeight: "700", color: "#1a1a1a", marginBottom: "12px" }}>
+            <h2 style={{ fontSize: "40px", fontWeight: "700", color: "#e8f3e5", marginBottom: "12px" }}>
               Questions
             </h2>
           </div>
           <div>
             {faqItems.map((item, i) => (
-              <div key={i} style={{ borderBottom: i < faqItems.length - 1 ? "1px solid #eee" : "none", paddingBottom: "16px", marginBottom: "16px" }}>
+              <div key={i} style={{ borderBottom: "1px solid rgba(168, 213, 162, 0.2)", paddingBottom: "16px", marginBottom: "16px" }}>
                 <button
                   onClick={() => setExpandedFAQ(expandedFAQ === i ? null : i)}
                   style={{
@@ -313,8 +350,11 @@ export default function Landing() {
                     alignItems: "center",
                     fontSize: "16px",
                     fontWeight: "600",
-                    color: "#1a1a1a",
+                    color: "#e8f3e5",
+                    transition: "color 0.2s",
                   }}
+                  onMouseOver={(e) => e.currentTarget.style.color = "#a8d5a2"}
+                  onMouseOut={(e) => e.currentTarget.style.color = "#e8f3e5"}
                 >
                   {item.q}
                   <span style={{ fontSize: "20px", color: "#a8d5a2" }}>
@@ -322,7 +362,7 @@ export default function Landing() {
                   </span>
                 </button>
                 {expandedFAQ === i && (
-                  <p style={{ fontSize: "14px", color: "#666", marginTop: "12px", lineHeight: "1.6", paddingLeft: "12px", borderLeft: "3px solid #a8d5a2" }}>
+                  <p style={{ fontSize: "14px", color: "#aaa", marginTop: "12px", lineHeight: "1.6", paddingLeft: "12px", borderLeft: "3px solid #a8d5a2", margin: "12px 0 0 0" }}>
                     {item.a}
                   </p>
                 )}
@@ -333,33 +373,33 @@ export default function Landing() {
       </section>
 
       {/* Final CTA */}
-      <section style={{ padding: "80px 20px" }}>
-        <div style={{ maxWidth: "640px", margin: "0 auto", background: "#1a1a1a", borderRadius: "20px", padding: "60px 32px", textAlign: "center" }}>
+      <section style={{ padding: "80px 20px", position: "relative" }}>
+        <div style={{ maxWidth: "640px", margin: "0 auto", background: "linear-gradient(135deg, rgba(168, 213, 162, 0.1), rgba(168, 213, 162, 0.05))", border: "1px solid rgba(168, 213, 162, 0.3)", borderRadius: "20px", padding: "60px 32px", textAlign: "center", backdropFilter: "blur(10px)" }}>
           <h2 style={{ fontSize: "36px", fontWeight: "700", color: "#e8f3e5", marginBottom: "16px" }}>
             Ready to stop writing cold emails?
           </h2>
-          <p style={{ fontSize: "16px", color: "#ccc", marginBottom: "32px" }}>
+          <p style={{ fontSize: "16px", color: "#aaa", marginBottom: "32px" }}>
             15 minutes to set up. Runs on autopilot after that.
           </p>
           <Link href="/agents">
             <button style={{
-              background: "#a8d5a2",
+              background: "linear-gradient(135deg, #a8d5a2, #96c88f)",
               color: "#1a1a1a",
               border: "none",
-              borderRadius: "24px",
-              padding: "16px 36px",
+              borderRadius: "12px",
+              padding: "16px 40px",
               fontSize: "16px",
               fontWeight: "600",
               cursor: "pointer",
-              transition: "all 0.2s",
+              transition: "all 0.3s",
             }}
               onMouseOver={(e) => {
-                e.currentTarget.style.background = "#96c88f";
-                e.currentTarget.style.transform = "scale(1.04)";
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 12px 24px rgba(168, 213, 162, 0.3)";
               }}
               onMouseOut={(e) => {
-                e.currentTarget.style.background = "#a8d5a2";
-                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
               }}
             >
               Start free →
@@ -369,7 +409,7 @@ export default function Landing() {
       </section>
 
       {/* Footer */}
-      <footer style={{ paddingTop: "40px", paddingBottom: "40px", textAlign: "center", borderTop: "1px solid #eee", color: "#999", fontSize: "12px" }}>
+      <footer style={{ paddingTop: "40px", paddingBottom: "40px", textAlign: "center", borderTop: "1px solid rgba(168, 213, 162, 0.2)", color: "#666", fontSize: "12px" }}>
         <p>© 2026 NIO. All rights reserved.</p>
       </footer>
     </div>
