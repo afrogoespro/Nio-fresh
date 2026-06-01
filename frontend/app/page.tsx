@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Landing() {
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
+  const [visibleSteps, setVisibleSteps] = useState<Set<number>>(new Set());
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const steps = [
     { num: 1, title: "Tell us about your business", desc: "What do you do? Who do you want to reach?" },
@@ -12,6 +14,26 @@ export default function Landing() {
     { num: 3, title: "How you want to sound", desc: "Show us your style. We'll write like you." },
     { num: 4, title: "How often to reach out", desc: "Pick a pace. We'll send on schedule." },
   ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = stepRefs.current.indexOf(entry.target as HTMLDivElement);
+            setVisibleSteps((prev) => new Set([...prev, index]));
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    stepRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const faqItems = [
     {
@@ -118,42 +140,82 @@ export default function Landing() {
       {/* 4-Step Animated Flow */}
       <section style={{ paddingBottom: "100px", padding: "40px 20px 100px" }}>
         <div style={{ maxWidth: "600px", margin: "0 auto" }}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0px" }}>
             {steps.map((step, i) => (
-              <div
-                key={i}
-                style={{
-                  background: "#a8d5a2",
-                  color: "#fff",
-                  padding: "20px 28px",
-                  borderRadius: "12px",
-                  fontSize: "16px",
-                  fontWeight: "600",
-                  animation: `slideInLeft 0.5s ease-out ${i * 0.12}s both`,
-                  textAlign: "left",
-                }}
-              >
-                <div style={{ fontSize: "32px", fontWeight: "700", marginBottom: "4px", opacity: 0.7 }}>
-                  {step.num}
+              <div key={i}>
+                {/* Step Card */}
+                <div
+                  ref={(el) => {
+                    if (el) stepRefs.current[i] = el;
+                  }}
+                  style={{
+                    background: "#a8d5a2",
+                    color: "#fff",
+                    padding: "24px 28px",
+                    borderRadius: "12px",
+                    fontSize: "16px",
+                    fontWeight: "600",
+                    textAlign: "left",
+                    opacity: visibleSteps.has(i) ? 1 : 0,
+                    transform: visibleSteps.has(i) ? "translateX(0)" : "translateX(-40px)",
+                    transition: "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                    transitionDelay: `${visibleSteps.has(i) ? i * 0.1 : 0}s`,
+                    marginBottom: i < steps.length - 1 ? "0" : "20px",
+                  }}
+                >
+                  <div style={{ fontSize: "32px", fontWeight: "700", marginBottom: "4px", opacity: 0.8 }}>
+                    {step.num}
+                  </div>
+                  <div style={{ fontSize: "16px", fontWeight: "700", marginBottom: "2px" }}>
+                    {step.title}
+                  </div>
+                  <div style={{ fontSize: "13px", fontWeight: "400", opacity: 0.9 }}>
+                    {step.desc}
+                  </div>
                 </div>
-                <div style={{ fontSize: "16px", fontWeight: "700", marginBottom: "2px" }}>
-                  {step.title}
-                </div>
-                <div style={{ fontSize: "13px", fontWeight: "400", opacity: 0.9 }}>
-                  {step.desc}
-                </div>
+
+                {/* Arrow between steps */}
+                {i < steps.length - 1 && (
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      padding: "12px 0",
+                      opacity: visibleSteps.has(i + 1) ? 1 : 0.3,
+                      transition: "opacity 0.6s ease",
+                    }}
+                  >
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M20 5V35M20 35L10 25M20 35L30 25"
+                        stroke="#a8d5a2"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                )}
               </div>
             ))}
+
+            {/* Final CTA */}
             <div
+              ref={(el) => {
+                if (el) stepRefs.current[steps.length] = el;
+              }}
               style={{
                 background: "#1a1a1a",
                 color: "#e8f3e5",
-                padding: "20px 28px",
+                padding: "24px 28px",
                 borderRadius: "12px",
                 fontSize: "16px",
                 fontWeight: "600",
                 textAlign: "center",
-                animation: `slideInLeft 0.5s ease-out ${steps.length * 0.12}s both`,
+                opacity: visibleSteps.has(steps.length) ? 1 : 0,
+                transform: visibleSteps.has(steps.length) ? "translateX(0)" : "translateX(-40px)",
+                transition: "all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                transitionDelay: `${visibleSteps.has(steps.length) ? steps.length * 0.1 : 0}s`,
               }}
             >
               Then we start →
