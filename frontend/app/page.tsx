@@ -6,22 +6,29 @@ import { useState } from "react";
 export default function Landing() {
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
 
+  const steps = [
+    { num: "1", title: "Tell us about your business", desc: "What do you do? Who do you want to reach?" },
+    { num: "2", title: "Who you want to target", desc: "Describe your ideal customer. We'll find them." },
+    { num: "3", title: "How you want to sound", desc: "Show us your style. We'll write like you." },
+    { num: "4", title: "How often to reach out", desc: "Pick a pace. We'll send on schedule." },
+  ];
+
   const faqItems = [
     {
-      q: "Will this spam people?",
-      a: "No. Every email is unique and personalized. NIO caps sends at about 30 per day and spaces them out to feel natural. This isn't a blast tool — it's one-to-one outreach, automated."
+      q: "Will people think this is spam?",
+      a: "No. Every email is real and personalized. We cap sends at 30 a day and space them out. This feels like one person reaching out, not a blast."
     },
     {
       q: "Does it sound like a robot?",
-      a: "NIO learns your writing style through a short training chat. It picks up your tone, your word choices, even phrases you like. Most people can't tell the difference."
+      a: "NIO learns how you actually talk. It picks up your tone, your words, your style. Most people can't tell the difference."
     },
     {
-      q: "What do I need to get started?",
-      a: "A description of your business and about 15 minutes. NIO handles the rest — finding prospects, researching them, and writing the first batch of emails for you to review."
+      q: "How long does setup take?",
+      a: "15 minutes. Answer a few questions. NIO handles everything else — finding people, researching them, writing emails."
     },
     {
-      q: "How do replies work?",
-      a: "When someone replies, you get an email notification with their info. From there, you take the conversation — NIO hands it off to you once the door is open."
+      q: "What happens when someone replies?",
+      a: "You get an email. Take the conversation from there. NIO opens the door, you close the deal."
     },
   ];
 
@@ -42,7 +49,7 @@ export default function Landing() {
         zIndex: 1000,
         boxShadow: "0 4px 16px rgba(0,0,0,0.1)",
       }}>
-        <span style={{ fontSize: "14px", fontWeight: "700", color: "#f4f9f0" }}>nio</span>
+        <span style={{ fontSize: "14px", fontWeight: "700", color: "#e8f3e5" }}>nio</span>
         <div style={{ display: "flex", gap: "24px", fontSize: "13px" }}>
           <a href="#how" style={{ color: "#999", textDecoration: "none", cursor: "pointer" }}>How it works</a>
           <a href="#why" style={{ color: "#999", textDecoration: "none", cursor: "pointer" }}>Why NIO</a>
@@ -69,108 +76,145 @@ export default function Landing() {
               e.currentTarget.style.transform = "scale(1)";
             }}
           >
-            Book a demo
+            Try it now
           </button>
         </Link>
       </nav>
 
       {/* Hero Section */}
-      <section style={{ paddingTop: "120px", paddingBottom: "80px", textAlign: "center" }}>
-        <div style={{ maxWidth: "800px", margin: "0 auto", padding: "0 20px" }}>
-          <h1 style={{ fontSize: "56px", fontWeight: "700", lineHeight: "1.2", marginBottom: "16px", color: "#1a1a1a" }}>
-            Outreach that sounds like you wrote it.
+      <section style={{ paddingTop: "120px", paddingBottom: "60px", textAlign: "center" }}>
+        <div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 20px" }}>
+          <h1 style={{ fontSize: "52px", fontWeight: "700", lineHeight: "1.2", marginBottom: "12px", color: "#1a1a1a" }}>
+            Cold emails that actually work.
           </h1>
-          <p style={{ fontSize: "18px", color: "#666", marginBottom: "32px", lineHeight: "1.6" }}>
-            NIO finds the right people, writes personalized emails in your voice, and sends them on autopilot. You just close the deals.
+          <p style={{ fontSize: "20px", color: "#666", marginBottom: "32px", lineHeight: "1.5" }}>
+            NIO learns how you talk, finds the right people, and writes personalized emails—all on autopilot.
           </p>
-          <div style={{ display: "flex", gap: "16px", justifyContent: "center", marginBottom: "12px" }}>
-            <Link href="/agents">
-              <button style={{
-                background: "#1a1a1a",
-                color: "#f4f9f0",
-                border: "none",
-                borderRadius: "24px",
-                padding: "14px 32px",
-                fontSize: "14px",
-                fontWeight: "600",
-                cursor: "pointer",
-                transition: "all 0.2s",
+          <Link href="/agents">
+            <button style={{
+              background: "#1a1a1a",
+              color: "#e8f3e5",
+              border: "none",
+              borderRadius: "24px",
+              padding: "14px 36px",
+              fontSize: "16px",
+              fontWeight: "600",
+              cursor: "pointer",
+              transition: "all 0.2s",
+            }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "scale(1.04)";
               }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.transform = "scale(1.04)";
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.transform = "scale(1)";
-                }}
-              >
-                Try it now →
-              </button>
-            </Link>
-          </div>
-          <p style={{ fontSize: "12px", color: "#999" }}>No credit card. 15-minute setup.</p>
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+              }}
+            >
+              Start free →
+            </button>
+          </Link>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section id="how" style={{ paddingBottom: "80px", background: "#fff", padding: "80px 20px" }}>
-        <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "60px" }}>
-            <p style={{ fontSize: "12px", fontWeight: "600", color: "#999", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px" }}>
-              How it works
-            </p>
-            <h2 style={{ fontSize: "42px", fontWeight: "700", color: "#1a1a1a" }}>Three steps. Then autopilot.</h2>
+      {/* 4-Step Animated Flow */}
+      <section style={{ paddingBottom: "100px", padding: "40px 20px 100px" }}>
+        <div style={{ maxWidth: "600px", margin: "0 auto" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            {steps.map((step, i) => (
+              <div
+                key={i}
+                style={{
+                  background: "#a8d5a2",
+                  color: "#fff",
+                  padding: "20px 28px",
+                  borderRadius: "12px",
+                  fontSize: "16px",
+                  fontWeight: "600",
+                  animation: `slideInLeft 0.5s ease-out ${i * 0.12}s both`,
+                  textAlign: "left",
+                }}
+              >
+                <div style={{ fontSize: "32px", fontWeight: "700", marginBottom: "4px", opacity: 0.7 }}>
+                  {step.num}
+                </div>
+                <div style={{ fontSize: "16px", fontWeight: "700", marginBottom: "2px" }}>
+                  {step.title}
+                </div>
+                <div style={{ fontSize: "13px", fontWeight: "400", opacity: 0.9 }}>
+                  {step.desc}
+                </div>
+              </div>
+            ))}
+            <div
+              style={{
+                background: "#1a1a1a",
+                color: "#e8f3e5",
+                padding: "20px 28px",
+                borderRadius: "12px",
+                fontSize: "16px",
+                fontWeight: "600",
+                textAlign: "center",
+                animation: `slideInLeft 0.5s ease-out ${steps.length * 0.12}s both`,
+              }}
+            >
+              Then we start →
+            </div>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "32px" }}>
+        </div>
+      </section>
+
+      {/* How It Works Explained */}
+      <section id="how" style={{ paddingBottom: "80px", background: "#fff", padding: "80px 20px" }}>
+        <div style={{ maxWidth: "700px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "60px" }}>
+            <h2 style={{ fontSize: "40px", fontWeight: "700", color: "#1a1a1a", marginBottom: "12px" }}>
+              Here's what actually happens
+            </h2>
+            <p style={{ fontSize: "16px", color: "#666" }}>
+              Simple. No complex setup. No spam. Just real emails that work.
+            </p>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "40px" }}>
             {[
-              { num: "1", title: "Tell us about your business", desc: "Answer a few questions about what you do and who you're looking for. NIO figures out the rest." },
-              { num: "2", title: "We find and write", desc: "NIO researches real people, finds something relevant about them, and writes a personal email in your voice." },
-              { num: "3", title: "You review, we send", desc: "Approve the messages you like, edit anything that feels off. NIO learns from every change you make." },
+              { num: "1", title: "We learn who you're looking for", desc: "You tell us about your business and ideal customer. That's it. We handle the research part." },
+              { num: "2", title: "We find real people", desc: "No generic lists. We hunt for actual people who match what you're looking for." },
+              { num: "3", title: "We write in your voice", desc: "Short, personal emails that sound like you. Not corporate. Not generic. Just real." },
+              { num: "4", title: "We send on your schedule", desc: "Every day, a few emails go out. Spaced out so they feel like one person reaching out." },
             ].map((item, i) => (
-              <div key={i} style={{
-                background: "#fff",
-                border: "2px solid #f4f9f0",
-                borderRadius: "20px",
-                padding: "32px",
-                position: "relative",
-                animation: `slideInLeft 0.6s ease-out ${i * 0.15}s both`,
-              }}>
-                <div style={{ fontSize: "44px", fontWeight: "700", color: "#a8d5a2", marginBottom: "16px" }}>
+              <div key={i} style={{ display: "flex", gap: "24px" }}>
+                <div style={{ fontSize: "32px", fontWeight: "700", color: "#a8d5a2", minWidth: "40px" }}>
                   {item.num}
                 </div>
-                <h3 style={{ fontSize: "18px", fontWeight: "700", marginBottom: "12px", color: "#1a1a1a" }}>
-                  {item.title}
-                </h3>
-                <p style={{ fontSize: "14px", color: "#666", lineHeight: "1.6" }}>
-                  {item.desc}
-                </p>
+                <div>
+                  <h3 style={{ fontSize: "18px", fontWeight: "700", marginBottom: "8px", color: "#1a1a1a" }}>
+                    {item.title}
+                  </h3>
+                  <p style={{ fontSize: "15px", color: "#666", lineHeight: "1.6" }}>
+                    {item.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features */}
+      {/* Why It Works */}
       <section id="why" style={{ paddingBottom: "80px", padding: "80px 20px" }}>
-        <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
+        <div style={{ maxWidth: "700px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
-            <p style={{ fontSize: "12px", fontWeight: "600", color: "#999", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px" }}>
-              Why NIO
-            </p>
-            <h2 style={{ fontSize: "42px", fontWeight: "700", color: "#1a1a1a" }}>Not another spam tool.</h2>
+            <h2 style={{ fontSize: "40px", fontWeight: "700", color: "#1a1a1a", marginBottom: "12px" }}>
+              Why people actually reply
+            </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "32px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "32px" }}>
             {[
-              { title: "Learns your voice", desc: "NIO trains on how you actually talk through a short conversation. Every edit you make teaches it more.", bg: "#eef6e9", color: "#4a7a42" },
-              { title: "Real research, not templates", desc: "Each email references something real — a recent post, a job change, a shared interest. Not 'I came across your profile.'", bg: "#f0ebe0", color: "#8a7550" },
-              { title: "Runs while you sleep", desc: "Set it once. NIO finds new prospects daily, writes and sends emails, and pings you when someone replies.", bg: "#ede8f4", color: "#6b5b8a" },
+              { title: "It sounds real", desc: "Emails sound like a human wrote them. Because you trained it." },
+              { title: "It's personalized", desc: "Each email mentions something specific about the person. Real research." },
+              { title: "It's consistent", desc: "You pick the pace. Same voice, same quality, every single email." },
             ].map((item, i) => (
-              <div key={i} style={{
-                background: item.bg,
-                borderRadius: "20px",
-                padding: "32px",
-                animation: `slideInLeft 0.6s ease-out ${i * 0.15}s both`,
-              }}>
-                <h3 style={{ fontSize: "18px", fontWeight: "700", marginBottom: "12px", color: item.color }}>
+              <div key={i} style={{ padding: "24px", background: "#f4f9f0", borderRadius: "16px" }}>
+                <h3 style={{ fontSize: "16px", fontWeight: "700", marginBottom: "8px", color: "#1a1a1a" }}>
                   {item.title}
                 </h3>
                 <p style={{ fontSize: "14px", color: "#666", lineHeight: "1.6" }}>
@@ -186,10 +230,9 @@ export default function Landing() {
       <section id="faq" style={{ paddingBottom: "80px", background: "#fff", padding: "80px 20px" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "60px" }}>
-            <p style={{ fontSize: "12px", fontWeight: "600", color: "#999", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: "12px" }}>
-              FAQ
-            </p>
-            <h2 style={{ fontSize: "42px", fontWeight: "700", color: "#1a1a1a" }}>The obvious questions.</h2>
+            <h2 style={{ fontSize: "40px", fontWeight: "700", color: "#1a1a1a", marginBottom: "12px" }}>
+              Questions
+            </h2>
           </div>
           <div>
             {faqItems.map((item, i) => (
@@ -230,11 +273,11 @@ export default function Landing() {
       {/* Final CTA */}
       <section style={{ padding: "80px 20px" }}>
         <div style={{ maxWidth: "640px", margin: "0 auto", background: "#1a1a1a", borderRadius: "20px", padding: "60px 32px", textAlign: "center" }}>
-          <h2 style={{ fontSize: "36px", fontWeight: "700", color: "#f4f9f0", marginBottom: "16px" }}>
-            Stop writing cold emails. Start getting replies.
+          <h2 style={{ fontSize: "36px", fontWeight: "700", color: "#e8f3e5", marginBottom: "16px" }}>
+            Ready to stop writing cold emails?
           </h2>
           <p style={{ fontSize: "16px", color: "#ccc", marginBottom: "32px" }}>
-            15 minutes to set up. Runs on autopilot from there.
+            15 minutes to set up. Runs on autopilot after that.
           </p>
           <Link href="/agents">
             <button style={{
@@ -257,7 +300,7 @@ export default function Landing() {
                 e.currentTarget.style.transform = "scale(1)";
               }}
             >
-              Book a demo →
+              Start free →
             </button>
           </Link>
         </div>
