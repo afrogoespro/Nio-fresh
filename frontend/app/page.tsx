@@ -115,7 +115,7 @@ export default function Landing() {
       }}>
         <div style={{ maxWidth: "800px", width: "100%" }}>
           {/* Left side: Text */}
-          <div style={{ marginBottom: "60px" }}>
+          <div style={{ marginBottom: "60px", textAlign: "center" }}>
             <h1 style={{
               fontSize: "56px",
               fontWeight: "700",
@@ -123,29 +123,31 @@ export default function Landing() {
               marginBottom: "20px",
               color: "#e8f3e5"
             }}>
-              Send personalized cold emails on autopilot.
+              Custom outreach on autopilot.
             </h1>
             <p style={{
               fontSize: "18px",
               color: "#999",
               marginBottom: "40px",
               lineHeight: "1.6",
-              maxWidth: "500px"
+              maxWidth: "100%",
+              margin: "0 auto 40px"
             }}>
               NIO learns your voice, finds real prospects, writes personal emails, and sends them daily. No templates. No spam. Just results.
             </p>
-            <Link href="/agents">
-              <button style={{
-                background: "#a8d5a2",
-                color: "#1a1a1a",
-                border: "none",
-                borderRadius: "8px",
-                padding: "14px 36px",
-                fontSize: "15px",
-                fontWeight: "600",
-                cursor: "pointer",
-                transition: "all 0.2s",
-              }}
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <Link href="/agents">
+                <button style={{
+                  background: "#a8d5a2",
+                  color: "#1a1a1a",
+                  border: "none",
+                  borderRadius: "8px",
+                  padding: "14px 36px",
+                  fontSize: "15px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  transition: "all 0.2s",
+                }}
                 onMouseOver={(e) => {
                   e.currentTarget.style.transform = "translateY(-2px)";
                   e.currentTarget.style.opacity = "0.9";
@@ -157,7 +159,8 @@ export default function Landing() {
               >
                 Start free →
               </button>
-            </Link>
+              </Link>
+            </div>
           </div>
 
           {/* Visual Demo - Simple mockup of the process */}
@@ -248,11 +251,59 @@ export default function Landing() {
       </section>
 
       {/* 4-Step Flow (Below fold) */}
-      <section style={{ padding: "80px 20px", maxWidth: "600px", margin: "0 auto" }}>
-        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-          {steps.map((step, i) => (
-            <div key={i}>
+      <section style={{ padding: "80px 20px", maxWidth: "700px", margin: "0 auto" }}>
+        <div style={{ display: "flex", gap: "40px" }}>
+          {/* Left: Animated connector */}
+          <div style={{ position: "relative", width: "60px", flexShrink: 0 }}>
+            <svg width="60" height="100%" viewBox="0 0 60 800" style={{ position: "absolute", top: 0, left: 0 }}>
+              {steps.map((_, i) => {
+                if (i < steps.length - 1) {
+                  return (
+                    <line
+                      key={`line-${i}`}
+                      x1="30"
+                      y1={i * 200 + 60}
+                      x2="30"
+                      y2={(i + 1) * 200}
+                      stroke="#a8d5a2"
+                      strokeWidth="2"
+                      opacity={visibleSteps.has(i + 1) ? 0.4 : 0.1}
+                      style={{
+                        transition: "opacity 0.6s ease",
+                        transitionDelay: `${visibleSteps.has(i + 1) ? (i + 1) * 0.1 : 0}s`,
+                      }}
+                    />
+                  );
+                }
+                return null;
+              })}
+
+              {/* Arrow heads */}
+              {steps.map((_, i) => {
+                if (i < steps.length - 1) {
+                  return (
+                    <g
+                      key={`arrow-${i}`}
+                      opacity={visibleSteps.has(i + 1) ? 0.4 : 0.1}
+                      style={{
+                        transition: "opacity 0.6s ease",
+                        transitionDelay: `${visibleSteps.has(i + 1) ? (i + 1) * 0.1 : 0}s`,
+                      }}
+                    >
+                      <polygon points="30,200 25,190 35,190" fill="#a8d5a2" />
+                    </g>
+                  );
+                }
+                return null;
+              })}
+            </svg>
+          </div>
+
+          {/* Right: Steps */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "140px", flex: 1 }}>
+            {steps.map((step, i) => (
               <div
+                key={i}
                 ref={(el) => {
                   if (el) stepRefs.current[i] = el;
                 }}
@@ -277,43 +328,29 @@ export default function Landing() {
                   {step.desc}
                 </div>
               </div>
+            ))}
 
-              {i < steps.length - 1 && (
-                <div style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  padding: "8px 0",
-                  opacity: visibleSteps.has(i + 1) ? 0.4 : 0.15,
-                  transition: "opacity 0.5s ease",
-                  fontSize: "14px",
-                  color: "#a8d5a2",
-                }}>
-                  ↓
-                </div>
-              )}
+            <div
+              ref={(el) => {
+                if (el) stepRefs.current[steps.length] = el;
+              }}
+              style={{
+                padding: "24px",
+                background: "#1a1a1a",
+                color: "#a8d5a2",
+                borderRadius: "8px",
+                fontSize: "14px",
+                fontWeight: "600",
+                textAlign: "center",
+                border: "1px solid #a8d5a2",
+                opacity: visibleSteps.has(steps.length) ? 1 : 0,
+                transform: visibleSteps.has(steps.length) ? "translateY(0)" : "translateY(20px)",
+                transition: "all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
+                transitionDelay: `${visibleSteps.has(steps.length) ? steps.length * 0.1 : 0}s`,
+              }}
+            >
+              Then we start →
             </div>
-          ))}
-
-          <div
-            ref={(el) => {
-              if (el) stepRefs.current[steps.length] = el;
-            }}
-            style={{
-              padding: "24px",
-              background: "#1a1a1a",
-              color: "#a8d5a2",
-              borderRadius: "8px",
-              fontSize: "14px",
-              fontWeight: "600",
-              textAlign: "center",
-              border: "1px solid #a8d5a2",
-              opacity: visibleSteps.has(steps.length) ? 1 : 0,
-              transform: visibleSteps.has(steps.length) ? "translateY(0)" : "translateY(20px)",
-              transition: "all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)",
-              transitionDelay: `${visibleSteps.has(steps.length) ? steps.length * 0.1 : 0}s`,
-            }}
-          >
-            Then we start →
           </div>
         </div>
       </section>
