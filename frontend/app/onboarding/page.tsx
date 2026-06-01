@@ -29,7 +29,7 @@ export default function Onboarding() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "var(--bg)", padding: "40px 20px", fontFamily: "'DM Sans', sans-serif" }} className="animate-fade-in">
+    <div style={{ minHeight: "100vh", background: "#f5f0e8", padding: "40px 20px", fontFamily: "'DM Sans', sans-serif" }} className="animate-fade-in">
       <div style={{ maxWidth: "600px", margin: "0 auto" }}>
         <Link href="/">
           <button style={{ background: "none", border: "none", cursor: "pointer", fontSize: "14px", color: "#a8d5a2", marginBottom: "40px", fontWeight: "600" }}>

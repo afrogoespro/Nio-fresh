@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Landing() {
   return (
-    <div style={{ minHeight: "100vh", background: "var(--bg)", padding: "60px 20px", fontFamily: "'DM Sans', sans-serif" }} className="animate-fade-in">
+    <div style={{ minHeight: "100vh", background: "#f5f0e8", padding: "60px 20px", fontFamily: "'DM Sans', sans-serif" }} className="animate-fade-in">
       <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
         {/* Logo/Brand */}
         <div style={{ marginBottom: "80px" }}>
