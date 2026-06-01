@@ -107,7 +107,7 @@ export default function Landing() {
       <section style={{ paddingTop: "120px", paddingBottom: "60px", textAlign: "center" }}>
         <div style={{ maxWidth: "700px", margin: "0 auto", padding: "0 20px" }}>
           <h1 style={{ fontSize: "52px", fontWeight: "700", lineHeight: "1.2", marginBottom: "12px", color: "#1a1a1a" }}>
-            Cold emails that actually work.
+            Intelligent cold outreach, done right.
           </h1>
           <p style={{ fontSize: "20px", color: "#666", marginBottom: "32px", lineHeight: "1.5" }}>
             NIO learns how you talk, finds the right people, and writes personalized emails—all on autopilot.
