@@ -6,6 +6,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from db.session import create_tables, AsyncSessionLocal
 from db.queries import get_active_campaigns
 from scheduler.daily_runner import run_campaign
+from routers.agents import router as agents_router
 from routers.onboarding import router as onboarding_router
 from routers.voice import router as voice_router
 from routers.review import router as review_router
@@ -52,6 +53,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(agents_router)
 app.include_router(onboarding_router)
 app.include_router(voice_router)
 app.include_router(review_router)
