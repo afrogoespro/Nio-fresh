@@ -26,7 +26,7 @@ export default function Landing() {
   ];
 
   return (
-    <div style={{ minHeight: "100vh", background: "#f4f9f0", fontFamily: "'DM Sans', sans-serif", color: "#1a1a1a" }}>
+    <div style={{ minHeight: "100vh", background: "#e8f3e5", fontFamily: "'DM Sans', sans-serif", color: "#1a1a1a" }}>
       {/* Navbar */}
       <nav style={{
         position: "fixed",
@@ -103,7 +103,7 @@ export default function Landing() {
                   e.currentTarget.style.transform = "scale(1)";
                 }}
               >
-                Book a demo →
+                Try it now →
               </button>
             </Link>
           </div>
