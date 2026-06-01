@@ -7,10 +7,10 @@ export default function Landing() {
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
 
   const steps = [
-    { num: "1", title: "Tell us about your business", desc: "What do you do? Who do you want to reach?" },
-    { num: "2", title: "Who you want to target", desc: "Describe your ideal customer. We'll find them." },
-    { num: "3", title: "How you want to sound", desc: "Show us your style. We'll write like you." },
-    { num: "4", title: "How often to reach out", desc: "Pick a pace. We'll send on schedule." },
+    { num: 1, title: "Tell us about your business", desc: "What do you do? Who do you want to reach?" },
+    { num: 2, title: "Who you want to target", desc: "Describe your ideal customer. We'll find them." },
+    { num: 3, title: "How you want to sound", desc: "Show us your style. We'll write like you." },
+    { num: 4, title: "How often to reach out", desc: "Pick a pace. We'll send on schedule." },
   ];
 
   const faqItems = [
