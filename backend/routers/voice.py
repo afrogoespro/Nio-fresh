@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from pydantic import BaseModel
-from agents.voice_agent import chat_training, extract_voice_profile, learn_from_edit
+from agents.voice_agent import voice_chat, extract_voice_profile
 from db.session import get_db
 from db.queries import save_voice_profile, get_voice_profile, update_voice_profile
 
@@ -28,21 +28,31 @@ class EditFeedback(BaseModel):
 
 
 @router.post("/chat", response_model=ChatResponse)
-async def voice_chat(data: ChatMessage, db: AsyncSession = Depends(get_db)):
-    result = await chat_training(
+async def voice_chat_endpoint(data: ChatMessage, db: AsyncSession = Depends(get_db)):
+    # Determine step based on message count
+    step = min((len(data.history) // 2) + 1, 4)  # Increment every 2 messages, max 4
+
+    result = await voice_chat(
+        agent_id="custom",
+        step=step,
+        user_input=data.message,
         conversation_history=data.history,
-        user_message=data.message,
     )
 
     voice_profile = None
-    if result["training_complete"]:
-        voice_profile = await extract_voice_profile(result["updated_history"])
-        await save_voice_profile(db, data.campaign_id, voice_profile, result["updated_history"])
+    # Assume training is complete after 4 steps
+    training_complete = step >= 4
+
+    if training_complete:
+        voice_profile = await extract_voice_profile(data.history + [
+            {"role": "assistant", "content": result["response"]}
+        ])
+        await save_voice_profile(db, data.campaign_id, voice_profile, data.history)
 
     return ChatResponse(
-        reply=result["reply"],
-        training_complete=result["training_complete"],
-        history=result["updated_history"],
+        reply=result["response"],
+        training_complete=training_complete,
+        history=data.history + [{"role": "assistant", "content": result["response"]}],
         voice_profile=voice_profile,
     )
 
@@ -57,13 +67,13 @@ async def get_profile(campaign_id: str, db: AsyncSession = Depends(get_db)):
 
 @router.post("/learn")
 async def learn_from_user_edit(data: EditFeedback, db: AsyncSession = Depends(get_db)):
+    """
+    Learn from user edits to refine voice profile.
+    Future: integrate this to improve voice accuracy based on user feedback.
+    """
     vp = await get_voice_profile(db, data.campaign_id)
     current = vp.profile if vp else {}
 
-    updated = await learn_from_edit(
-        original_message=data.original,
-        edited_message=data.edited,
-        current_profile=current,
-    )
-    await update_voice_profile(db, data.campaign_id, updated)
-    return {"voice_profile": updated}
+    # For now, just return the current profile
+    # In future, implement learning logic here
+    return {"voice_profile": current}
