@@ -32,17 +32,17 @@ export default function Onboarding() {
     <div style={{ minHeight: "100vh", background: "var(--bg)", padding: "40px 20px", fontFamily: "'DM Sans', sans-serif" }} className="animate-fade-in">
       <div style={{ maxWidth: "600px", margin: "0 auto" }}>
         <Link href="/">
-          <button style={{ background: "none", border: "none", cursor: "pointer", fontSize: "14px", color: "var(--accent)", marginBottom: "40px", fontWeight: "600" }}>
+          <button style={{ background: "none", border: "none", cursor: "pointer", fontSize: "14px", color: "#a8d5a2", marginBottom: "40px", fontWeight: "600" }}>
             ← Back
           </button>
         </Link>
 
         {step === 1 && (
           <div className="animate-fade-in">
-            <h1 style={{ fontSize: "32px", fontWeight: "700", margin: "0 0 12px 0", color: "var(--text)" }}>
+            <h1 style={{ fontSize: "32px", fontWeight: "700", margin: "0 0 12px 0", color: "#1a1a1a" }}>
               Tell us about your business
             </h1>
-            <p style={{ fontSize: "14px", color: "var(--text-light)", margin: "0 0 24px 0" }}>
+            <p style={{ fontSize: "14px", color: "#666", margin: "0 0 24px 0" }}>
               Describe what you do, your products, and who you help.
             </p>
             <textarea
@@ -58,8 +58,8 @@ export default function Onboarding() {
                 minHeight: "140px",
                 fontFamily: "'DM Sans', inherit",
                 boxSizing: "border-box",
-                color: "var(--text)",
-                background: "var(--white)",
+                color: "#1a1a1a",
+                background: "#ffffff",
                 transition: "border-color 0.2s",
               }}
               onFocus={(e) => e.currentTarget.style.borderColor = "var(--accent)"}
@@ -71,8 +71,8 @@ export default function Onboarding() {
               style={{
                 marginTop: "24px",
                 padding: "12px 24px",
-                background: business.trim() && !isLoading ? "var(--accent)" : "#ddd",
-                color: "var(--text)",
+                background: business.trim() && !isLoading ? "#a8d5a2" : "#ddd",
+                color: "#1a1a1a",
                 border: "none",
                 borderRadius: "8px",
                 cursor: business.trim() && !isLoading ? "pointer" : "not-allowed",
@@ -82,12 +82,12 @@ export default function Onboarding() {
               }}
               onMouseOver={(e) => {
                 if (business.trim() && !isLoading) {
-                  e.currentTarget.style.background = "var(--accent-dark)";
+                  e.currentTarget.style.background = "#8dc880";
                   e.currentTarget.style.transform = "scale(1.02)";
                 }
               }}
               onMouseOut={(e) => {
-                e.currentTarget.style.background = business.trim() && !isLoading ? "var(--accent)" : "#ddd";
+                e.currentTarget.style.background = business.trim() && !isLoading ? "#a8d5a2" : "#ddd";
                 e.currentTarget.style.transform = "scale(1)";
               }}
             >
@@ -98,21 +98,21 @@ export default function Onboarding() {
 
         {step === 2 && (
           <div className="animate-fade-in">
-            <h1 style={{ fontSize: "32px", fontWeight: "700", margin: "0 0 12px 0", color: "var(--text)" }}>
+            <h1 style={{ fontSize: "32px", fontWeight: "700", margin: "0 0 12px 0", color: "#1a1a1a" }}>
               Voice Profile
             </h1>
-            <p style={{ fontSize: "14px", color: "var(--text-light)", margin: "0 0 24px 0" }}>
+            <p style={{ fontSize: "14px", color: "#666", margin: "0 0 24px 0" }}>
               Here's how we'll write emails in your voice.
             </p>
 
-            <div style={{ padding: "16px", background: "var(--white)", borderRadius: "8px", border: `1px solid var(--border)`, marginBottom: "24px" }}>
-              <p style={{ fontSize: "12px", color: "var(--text-light)", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 12px 0", fontWeight: "600" }}>
+            <div style={{ padding: "16px", background: "#ffffff", borderRadius: "8px", border: `1px solid #ddd`, marginBottom: "24px" }}>
+              <p style={{ fontSize: "12px", color: "#666", textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 12px 0", fontWeight: "600" }}>
                 Your Voice
               </p>
-              <p style={{ fontSize: "16px", color: "var(--text)", margin: "0 0 12px 0", fontWeight: "600" }}>
+              <p style={{ fontSize: "16px", color: "#1a1a1a", margin: "0 0 12px 0", fontWeight: "600" }}>
                 {voiceProfile.personality || "Professional & Friendly"}
               </p>
-              <p style={{ fontSize: "13px", color: "var(--text-light)", lineHeight: "1.6", margin: 0 }}>
+              <p style={{ fontSize: "13px", color: "#666", lineHeight: "1.6", margin: 0 }}>
                 {voiceProfile.examples?.[0] || "Emails will be personalized and conversational"}
               </p>
             </div>
@@ -121,8 +121,8 @@ export default function Onboarding() {
               <button style={{
                 width: "100%",
                 padding: "12px 24px",
-                background: "var(--accent)",
-                color: "var(--text)",
+                background: "#a8d5a2",
+                color: "#1a1a1a",
                 border: "none",
                 borderRadius: "8px",
                 cursor: "pointer",
@@ -131,11 +131,11 @@ export default function Onboarding() {
                 transition: "all 0.2s",
               }}
                 onMouseOver={(e) => {
-                  e.currentTarget.style.background = "var(--accent-dark)";
+                  e.currentTarget.style.background = "#8dc880";
                   e.currentTarget.style.transform = "scale(1.02)";
                 }}
                 onMouseOut={(e) => {
-                  e.currentTarget.style.background = "var(--accent)";
+                  e.currentTarget.style.background = "#a8d5a2";
                   e.currentTarget.style.transform = "scale(1)";
                 }}
               >
